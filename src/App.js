@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  let [ counter, setCounter ] = useState(15);
+  // counter is variable and setCounter is function
+  function incValue(){
+    if(counter < 20){
+      setCounter(counter + 1);
+    }
+    else setCounter(20);
+    
+  }
+  function decValue(){
+    if(counter > 0) setCounter(counter - 1);
+    else setCounter(0);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1>Hello, world!</h1>
+    <h2>Counter value : {counter}</h2>
+    <button onClick={incValue}>Increment</button>
+    <button onClick={decValue}>Decrement</button>
+    </>
   );
 }
 
